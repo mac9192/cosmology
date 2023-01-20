@@ -123,12 +123,12 @@ useEffect(() => {
           fontWeight="bold"
           fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
         >
-          <Text as="span">Welcome to&nbsp;</Text>
+          <Text as="span">CosmWasm&nbsp;</Text>
           <Text
             as="span"
             color={useColorModeValue('primary.500', 'primary.200')}
           >
-            CosmosKit + Next.js
+            Academy
           </Text>
         </Heading>
       </Box>
@@ -139,23 +139,8 @@ useEffect(() => {
       <p>{txHash}</p>
       <Button onClick={handleSend}>Send!</Button>
 
-      <Grid
-        templateColumns={{
-          md: 'repeat(2, 1fr)',
-          lg: 'repeat(3, 1fr)'
-        }}
-        gap={8}
-        mb={14}
-      >
-        {products.map((product) => (
-          <Product key={product.title} {...product}></Product>
-        ))}
-      </Grid>
-      <Grid templateColumns={{ md: '1fr 1fr' }} gap={8} mb={20}>
-        {dependencies.map((dependency) => (
-          <Dependency key={dependency.title} {...dependency}></Dependency>
-        ))}
-      </Grid>
+     
+       
       <Box mb={3}>
         <Divider />
       </Box>
