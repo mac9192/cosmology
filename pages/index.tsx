@@ -36,6 +36,7 @@ export default function Home() {
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [recipient, setRecipient] = useState<string | undefined>(undefined);
   const [cw20Client, setCw20Client] = useState<Cw20Client | undefined>(undefined);
+  
   const [txHash, setTxHash ] = useState<string | undefined>(undefined);
  
 
@@ -51,12 +52,14 @@ export default function Home() {
 
     
   };
-  const { getCosmWasmClient, address, getSigningCosmWasmClient } = useChain(chainName);
+  const { getCosmWasmClient, address, getSigningCosmWasmClient, isWalletConnected } = useChain(chainName);
 
 // cw20Client
 
 
+
 useEffect(() => {
+  if(isWalletConnected === true )
   getSigningCosmWasmClient().then((cosmWasmClient) => {
       if (!cosmWasmClient || ! address){
           console.error("No CosmWasmClient or no address!");
@@ -69,7 +72,8 @@ useEffect(() => {
       setCw20Client(newClient);
   });
   
-}, [ address, getCosmWasmClient]);
+}, [ address, getSigningCosmWasmClient, isWalletConnected]);
+  
 
 
     
